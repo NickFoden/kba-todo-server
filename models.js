@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const todoSchema = mongoose.Schema({ 
          	todo : {type: string},
-         	approved : {type: Boolean, default: false},
+         	completed : {type: Boolean, default: false},
+         	level : {type: String, default: 'green'},
          	userName : {type: String}
      } 
 );
 
-const todo = mongoose.model('todo', todoSchema);
+const Todo = mongoose.model('Todo', todoSchema);
 
-
-module.exports = {todo};
+module.exports = {Todo};
