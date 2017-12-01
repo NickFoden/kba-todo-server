@@ -5,9 +5,9 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-
+const {todo} = require('./models.js');
 const {PORT, DATABASE_URL, CLIENT_ORIGIN} = require('./config');
-
+mongoose.Promise = global.Promise;
 app.use(bodyParser.json());
 
 
