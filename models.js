@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const todoSchema = mongoose.Schema({ 
-         	todo : {type: string},
+         	todo : {type: String},
          	completed : {type: Boolean, default: false},
          	level : {type: String, default: 'green'},
          	userName : {type: String}

@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
@@ -46,7 +46,7 @@ app.post('/', function(req, res, next) {
     .create({
         todo :[req.body.todoData],
         completed : false,
-        level : 'green'
+        level : 'green',
         userName : [req.body.todoData.username]
         })
     .then((todo) => {
