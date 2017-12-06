@@ -44,10 +44,10 @@ app.get('/', (req, res) =>{
 app.post('/', function(req, res, next) {
     Todo
     .create({
-        todo :[req.body.todoData],
+        todo :[req.body.todo],
         completed : false,
         level : 'green',
-        userName : [req.body.todoData.username]
+        userName : [req.body.username]
         })
     .then((todo) => {
       Todo.find((todos) => {
