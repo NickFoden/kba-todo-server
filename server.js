@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const {Todo} = require('./models.js');
+const {Todo, User} = require('./models.js');
 const {PORT, DATABASE_URL, CLIENT_ORIGIN} = require('./config');
 mongoose.Promise = global.Promise;
 app.use(bodyParser.json());
@@ -51,9 +51,6 @@ app.post('/', function(req, res, next) {
         })
     .then((todo) => {
       Todo.find((todos) => {
-        if(err) {
-          res.send(err)
-        }
         res.json(todos)
       })
     })
@@ -63,6 +60,33 @@ app.post('/', function(req, res, next) {
     });
 });
 
+//Create a User
+// app.post('/user/:username', function(req, res) {
+//     let userC = req.params.username;
+//     User
+//     .find({userC})
+//     .count()
+//     .then(count => {
+//     	if (count < 1 ) {
+//     		return user
+// 			   .create({
+// 			        userName :[req.params.username]
+// 			        })
+// 			    .then((user) => {
+// 			        res.json(user)
+// 			    })
+// 			}
+// 		return user		
+//     })
+//     .then( user => {
+//     	console.log(user);
+//     	return res.status(201).json(user)
+//     })
+//     .catch(err => {
+//         console.error(err);
+//         res.status(500).json({message: err});
+//     });
+// });
 // Completed or not completed todos - endpoints
 app.put('/todo/:id/completed', function (req, res){
 	Todo

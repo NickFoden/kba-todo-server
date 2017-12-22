@@ -10,4 +10,13 @@ const todoSchema = mongoose.Schema({
 
 const Todo = mongoose.model('Todo', todoSchema);
 
-module.exports = {Todo};
+const userSchema = mongoose.Schema({ 
+         	userName : {type: String},
+         	todosArray : {type:Array}
+     } 
+);
+
+const User = mongoose.model('User', userSchema);
+
+
+module.exports = {Todo, User};
